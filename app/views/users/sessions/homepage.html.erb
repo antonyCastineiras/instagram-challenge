@@ -1,0 +1,16 @@
+<h1><%= "#{@user.email}'s homepage" %></h1>
+
+<div id="suggested-to-follow">
+	<h3>Suggested to Follow</h3>
+	<% @user.suggested_to_follow.each do |suggested_follower| %>
+		<p><%= suggested_follower.email %></p>
+		<%= link_to "Follow this user", users_followings_path(:followed_id => suggested_follower.id) %>
+	<% end %>
+</div>
+
+<div id="followed-users">
+	<h3>Currently Following</h3>
+	<% @user.currently_following.each do |followed_user| %>
+		<p><%= followed_user.email %></p>
+	<% end %>
+</div>
